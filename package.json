@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/leerivera/apiOne/issues"
   },
-  "homepage": "https://github.com/leerivera/apiOne#readme"
+  "homepage": "https://github.com/leerivera/apiOne#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
 }
