@@ -4,6 +4,9 @@ const app = express();
 
 const MongoClient = require('mongodb').MongoClient
 
+MongoClient.connect('mongodb-connection-string', (err, client) =>{
+    
+})
 // place this before all crud code it tells bp to extract data form and add it to req
 app.use(bodyParser.urlencoded({ extended: true}))
 
