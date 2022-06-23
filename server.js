@@ -32,8 +32,8 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true})
     app.get('/', (req, res) =>{
         // res.sendFile(__dirname + '/index.html')
         db.collection('quotes').find().toArray()
-         .then(results => {
-            console.log(results)
+         .then(quotes => {
+            res.render('index.ejs', { quote: quotes})
          })
          .catch(error => console.error(error))
     })
