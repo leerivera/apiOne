@@ -64,6 +64,19 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true})
         .catch(error => console.log(error))
       })
 
+
+      app.delete('/quotes', (req, res) => {
+        quotesCollection.deleteOne(
+          { name: req.body.name }
+        )
+          .then(result => {
+            if (result.deleteCount === 0) {
+              return res.json('No quote to delete')
+            }
+            res.json('Deleted Darth vadar quote')
+          })
+      })
+
       app.listen(3000, function(){
         console.log('3000 you heard?!')
     })
