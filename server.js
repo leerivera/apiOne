@@ -25,12 +25,17 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true})
     console.log('database is connected like 4')
     const db = client.db('star-wars-quotes')
     const quotesCollection = db.collection('quotes')
+
+    app.set('view engine', 'ejs')
     app.use(bodyParser.urlencoded({ extended: true}))
 
     app.get('/', (req, res) =>{
         // res.sendFile(__dirname + '/index.html')
-        const cursor = db.collection('quotes').find()
-        console.log(cursor)
+        db.collection('quotes').find().toArray()
+         .then(results => {
+            console.log(results)
+         })
+         .catch(error => console.error(error))
     })
     
      app.post('/quotes', (req, res) => {
