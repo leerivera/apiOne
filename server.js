@@ -46,6 +46,11 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true})
            })
            .catch(error => console.error(error))
       })
+
+      app.put('/quotes', (req, res) => {
+        console.log(req.body)
+      })
+      
       app.listen(3000, function(){
         console.log('3000 you heard?!')
     })
