@@ -75,6 +75,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true})
             }
             res.json('Deleted Darth vadar quote')
           })
+          .catch(error => console.error(error))
       })
 
       app.listen(3000, function(){
