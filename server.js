@@ -28,13 +28,13 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true})
 
     app.set('view engine', 'ejs')
     app.use(bodyParser.urlencoded({ extended: true}))
+    app.use(bodyParser.json())
 
-    app.get('/', (req, res) =>{
-        // res.sendFile(__dirname + '/index.html')
+    app.get('/', (req, res) => {
         db.collection('quotes').find().toArray()
-         .then(quotes => {
-            res.render('index.ejs', { quote: quotes})
-         })
+          .then(quotes => {
+            res.render('index.ejs', { quotes: quotes })
+          })
          .catch(error => console.error(error))
     })
     
